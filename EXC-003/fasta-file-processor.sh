@@ -1,5 +1,5 @@
 ##test for right order in file
-i
+
 if [ "$(head -c 1 $1)" == ">" ]; then 
 
 ## FASTA file all sequence in one line, new file created
