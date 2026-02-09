@@ -5,10 +5,7 @@ if [ "$(head -c 1 $1)" == ">" ]; then
 awk '/>/ {if (seq) print seq; print; seq=""; next} {seq=seq $0} END {print seq}' $1 > genes-one-line.fna
 
 ## Number of sequences in file 
-num_contigs=$( grep '>' genes-one-line.fna | wc -l )
-
-## Total length of sequences
-one_line="genes-one-line.fna"
+num_contigs=$( grep '>' genes-one-line.fna | wc -l | awk '{print $1}' )
 total_length_sq=$(grep -v '>' "$one_line" | tr -d '\n' | wc -c)
 
 ## Length of the longest sequence 
