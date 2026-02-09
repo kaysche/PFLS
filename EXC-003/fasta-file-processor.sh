@@ -7,7 +7,7 @@ awk '/>/ {if (seq) print seq; print; seq=""; next} {seq=seq $0} END {print seq}'
 
 ## Number of sequences in file 
 num_contigs=$( grep '>' genes-one-line.fna | wc -l | awk '{print $1}' )
-total_length_sq=$(grep -v '>' genes-one-line.fna | tr -d '\n' | wc -c)
+total_length_sq=$(grep -v '>' genes-one-line.fna | tr -d '\n' | wc -c | awk '{print $1}' )
 
 ## Length of the longest sequence 
 long=$(cat genes-one-line.fna | grep -v '>' genes-one-line.fna |  awk '{print length}' | sort -n | tail -n 1) 
