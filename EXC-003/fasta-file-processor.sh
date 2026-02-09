@@ -37,7 +37,8 @@ if [ "$(head -c 1 $1)" == ">" ]; then
 	# to remove unwanted file
 	rm genes-one-line.fna
 
-else echo "file has not correct lines" 
+else 
+	echo "file has not correct lines" 
 
 fi
 
